@@ -30,7 +30,7 @@ def send_messages(args):
                 timestamp = '{:.3f}'.format(time.time())
                 message = '{} {}'.format(timestamp, message)
             if args.verbose:
-                print message
+                print(message)
             udp_socket.sendto(message, (args.hostname, args.port))
             file_line_number = (file_line_number + 1) % len(lines)
             message_sequence_number += 1
