@@ -6,7 +6,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--port', default=8089, help='the bind port, default to 8089', type=int)
     parser.add_argument('-s', '--sequence', default=False, action='store_true', help='prepend sequence number, default to false')
-    parser.add_argument('-t', '--timestamp', default=False, action='store_true', help='prepend timestamp , default to false')
+    parser.add_argument('-t', '--timestamp', default=False, action='store_true', help='prepend timestamp, default to false')
     parser.add_argument('-v', '--verbose', default=False, action='store_true', help='print more info, default to false')
     return parser.parse_args()
 

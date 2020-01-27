@@ -9,7 +9,7 @@ def parse_args():
     parser.add_argument('-d', '--delay', default=0.1, help='the delay in seconds between each message, default to 0.1 seconds', type=float)
     parser.add_argument('-m', '--messages', default='./messages', help='file containing messages to send, one message per line, loops when end is reached, default to ./messages')
     parser.add_argument('-s', '--sequence', default=False, action='store_true', help='prepend sequence number, default to false')
-    parser.add_argument('-t', '--timestamp', default=False, action='store_true', help='prepend timestamp , default to false')
+    parser.add_argument('-t', '--timestamp', default=False, action='store_true', help='prepend timestamp, default to false')
     parser.add_argument('-v', '--verbose', default=False, action='store_true', help='print more info, default to false')
     return parser.parse_args()
 
