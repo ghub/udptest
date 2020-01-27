@@ -36,6 +36,7 @@ def send_messages(args):
             message_sequence_number += 1
             time.sleep(args.delay)
     except KeyboardInterrupt:
+        udp_socket.close()
         if args.verbose:
             print('\nSent {} messages in total'.format(message_sequence_number))
  
