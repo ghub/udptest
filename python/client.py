@@ -22,6 +22,8 @@ def send_messages(args):
     message_sequence_number = 0
     try:
         udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        if args.verbose:
+            print('SNDBUF={}'.format(udp_socket.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)))
         while True:
             message = lines[file_line_number]
             if args.sequence:
@@ -39,10 +41,10 @@ def send_messages(args):
         udp_socket.close()
         if args.verbose:
             print('\nSent {} messages in total'.format(message_sequence_number))
- 
+
 def main():
     args = parse_args()
     send_messages(args)
- 
+
 if __name__ == '__main__':
     main()

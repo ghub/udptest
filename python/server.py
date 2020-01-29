@@ -18,6 +18,8 @@ def receive_messages(args):
         host = '0.0.0.0'
         udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         udp_socket.bind((host, args.port))
+        if args.verbose:
+            print('RCVBUF={}'.format(udp_socket.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)))
         buffer_size = 1024 * 1024
         while True:
             message, _address = udp_socket.recvfrom(buffer_size)
@@ -36,10 +38,10 @@ def receive_messages(args):
         udp_socket.close()
         if args.verbose:
             print('\nReceived {} messages in total'.format(message_sequence_number))
- 
+
 def main():
     args = parse_args()
     receive_messages(args)
- 
+
 if __name__ == '__main__':
     main()
